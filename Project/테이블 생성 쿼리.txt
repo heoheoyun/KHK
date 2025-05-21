@@ -1,0 +1,47 @@
+CREATE TABLE member (
+  member_id VARCHAR(100) PRIMARY KEY,       -- 이메일 ID
+  password VARCHAR(255) NOT NULL,           -- 암호화된 비밀번호
+  name VARCHAR(50) NOT NULL,
+  phone VARCHAR(20),
+  zipcode VARCHAR(10),
+  address VARCHAR(100),
+  detail_address VARCHAR(100),
+  role CHAR(1) DEFAULT 'U',                 -- 'U'=사용자, 'A'=관리자
+  status CHAR(1) DEFAULT 'A'                -- 'A'=활성, 'D'=탈퇴
+);
+
+SELECT *FROM member;
+
+CREATE TABLE board (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    board_type ENUM('ADOPTION', 'CARE') NOT NULL,  -- 게시판 종류
+    title VARCHAR(200) NOT NULL,
+    content TEXT NOT NULL,
+    region VARCHAR(50),           -- ⬅️ 지역 하나만 사용 (예: 서울, 제주)
+    writer VARCHAR(100) NOT NULL,
+    hit INT DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE comment (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    board_id INT NOT NULL,
+    writer VARCHAR(100) NOT NULL,
+    content TEXT NOT NULL,
+    parent_id INT, -- 대댓글일 경우 상위 댓글 ID
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (board_id) REFERENCES board(id) ON DELETE CASCADE
+);
+
+CREATE TABLE board_file (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    board_id INT NOT NULL,
+    original_name VARCHAR(255),
+    stored_name VARCHAR(255),
+    uploaded_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (board_id) REFERENCES board(id) ON DELETE CASCADE
+);
+
+
+ 
