@@ -1,0 +1,4 @@
+USE moapet;
+CREATE USER 'moapet_admin'@'localhost' IDENTIFIED BY '1111';
+GRANT ALL PRIVILEGES ON moapet.* TO 'moapet_admin'@'localhost';
+FLUSH PRIVILEGES;
