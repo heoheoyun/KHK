@@ -1,6 +1,0 @@
-CREATE DATABASE moapet;
-USE moapet;
-CREATE USER 'moapet_admin'@'127.0.0.1' IDENTIFIED BY '1111';
-GRANT ALL PRIVILEGES ON moapet.* TO 'moapet_admin'@'127.0.0.1';
-
-FLUSH PRIVILEGES;
