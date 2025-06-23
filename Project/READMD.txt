@@ -1,0 +1,9 @@
+▶ 프로젝트 실행 방법
+1. MySQL에서 moapet_database.sql 실행
+2. Tomcat 9 서버의 webapps 폴더에 moapet_project.war 복사
+3. Tomcat 실행 후 httplocalhost8080moapet_project 접속
+
+▶ DB 접속 정보
+- DB명 moapet
+- 계정 moapet_admin
+- 비밀번호 1111
