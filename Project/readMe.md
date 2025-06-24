@@ -10,7 +10,7 @@
 ## 🧰 기술 스택
 - **Backend**: Java Servlet, JSP, JDBC
 - **Frontend**: HTML5, CSS3, JSTL
-- **Database**: MySQL (추정)
+- **Database**: MariaDB
 - **IDE**: Eclipse
 - **패턴**: MVC, DAO/DTO 구조
 
